@@ -1,0 +1,23 @@
+{
+  "name": "invokr",
+  "version": "0.1.0",
+  "description": "Call functions on the server side as if they were available on client side",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucavgobbi/invokr.git"
+  },
+  "author": "@lucavgobbi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lucavgobbi/invokr/issues"
+  },
+  "homepage": "https://github.com/lucavgobbi/invokr",
+  "dependencies": {
+    "socket.io": "^1.4.5",
+    "underscore": "^1.8.3"
+  }
+}
