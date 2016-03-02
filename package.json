@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/lucavgobbi/invokr",
   "dependencies": {
-    "socket.io": "^1.4.5",
-    "underscore": "^1.8.3"
+    "socket.io": "^1.4.5"
   }
 }

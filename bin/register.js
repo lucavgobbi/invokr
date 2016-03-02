@@ -24,7 +24,8 @@ const getMethod = function getMethod (name) {
 };
 
 const addMethod = function addMethod (obj) {
-    registeredMethods[obj.name] = { func: obj.func, type: obj.type };
+    const type = obj.type || 'callback';
+    registeredMethods[obj.name] = { func: obj.func, type: type };
 };
 
 module.exports = {
