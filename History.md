@@ -1,3 +1,7 @@
+## Version 0.1.2
+1. Removed unused methods
+2. PROMISES :D
+
 ## Version 0.1.1
 1. Underscore not required anymore
 2. When registering method type is not required and is assumed as 'callback'

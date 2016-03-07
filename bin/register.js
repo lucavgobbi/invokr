@@ -5,17 +5,6 @@
 
 let registeredMethods = {};
 
-const callMethod = function callMethod (name) {
-    const allArgs = (arguments.length === 1?[arguments[0]]:Array.apply(null, arguments));
-    const args = allArgs[1];
-    const method = getMethod(name);
-
-    if (method.type == 'callback') {
-        args[args.length - 1] = returnCallback;
-        method.func.apply(null, args);
-    }
-};
-
 const getMethod = function getMethod (name) {
     if (name) {
         return registeredMethods[name];
@@ -30,6 +19,5 @@ const addMethod = function addMethod (obj) {
 
 module.exports = {
     addMethod: addMethod,
-    getMethod: getMethod,
-    callMethod: callMethod
+    getMethod: getMethod
 };

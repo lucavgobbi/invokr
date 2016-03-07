@@ -17,12 +17,24 @@ const echo = function echo (text, callback) {
 
 const sum = function (number1, number2, callback) {
     if (isNaN(number1) || isNaN(number2)) {
-        return callback('Is not a number');
+        return callback('number1 or number2 is not a number');
     }
     callback(null, number1 + number2)
 };
 
+const subtract = function (number1, number2) {
+    "use strict";
+    return new Promise (function (resolve, reject) {
+        if (isNaN(number1) || isNaN(number2)) {
+            return reject('number1 or number2 is not a number');
+        }
+
+        resolve(number1 - number2);
+    });
+};
+
 invokr.addMethod({ name: 'echo', func: echo, type: 'callback' });
 invokr.addMethod({ name: 'sum', func: sum, type: 'callback' });
+invokr.addMethod({ name: 'subtract', func: subtract, type: 'promise' });
 
 invokr.attachToServer(server);

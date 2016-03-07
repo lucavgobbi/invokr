@@ -12,12 +12,21 @@ function returnCallback () {
     this.socket.emit('invokr-responseMethod', { cid: this.cid, callbackArgs: args });
 }
 
+function fulfillPromise () {
+    const args = (arguments.length === 1?[arguments[0]]:Array.apply(null, arguments));
+    this.socket.emit('invokr-responseMethod', { cid: this.cid, type: this.type, promiseArgs: args })
+}
+
 function processMethod(msg, socket) {
     const method = register.getMethod(msg.name);
 
-    if (method.type == 'callback') {
+    if (method.type === 'callback') {
         msg.params[msg.params.length - 1] = returnCallback.bind({ socket: socket, cid: msg.cid });
         method.func.apply(null, msg.params);
+    } else if (method.type === 'promise') {
+        method.func.apply(null, msg.params)
+            .then(fulfillPromise.bind({ socket: socket, cid: msg.cid, type: 'then' }))
+            .catch(fulfillPromise.bind({ socket: socket, cid: msg.cid, type: 'catch' }));
     }
 }
 

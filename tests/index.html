@@ -20,8 +20,16 @@
         console.log(value);
     }
 
+    function testPromise () {
+        var p = invokr.subtract(5, 2)
+        p.then(function (r) {
+            console.log(r);
+        });
+    }
+
     $(document).ready(function () {
         invokr.connect('http://localhost:3000');
+
     })
 </script>
 

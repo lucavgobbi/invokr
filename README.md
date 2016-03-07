@@ -9,7 +9,7 @@
 ## How to use
 ### Server side
 1. require invokr server
-2. register all functions you want to make available on the client with `invokr.addMethod({ name: 'nameOnTheClientSide ', func: theFunction });`
+2. register all functions you want to make available on the client with `invokr.addMethod({ name: 'nameOnTheClientSide ', func: theFunction , type: 'callback or promise'});`
 3. attach invokr to you server `invokr.attachToServer(server)`;
 
 For more details check /tests/server.js.
@@ -21,7 +21,9 @@ Make sure you installed all the dependencies with NPM on invokr folder
     * add socket.io script: `<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>`
     * add invokr.js client script which can be found on /web/invokr.js
 2. call `invokr.connect('urlToServer')`;
-3. call any methods with `invokr.nameOnTheClientSide(arg1, arg2...);`
+3. call any methods!
+    * callback methods: `invokr.nameOnTheClientSide(arg1, arg2..., yourCallbackOnTheClientSide);`
+    * promise methods: `var promise = invokr.nameOnTheClientSide(arg1, arg2...);`
 
 For more details check /tests/index.html
 
