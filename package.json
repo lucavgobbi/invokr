@@ -1,6 +1,6 @@
 {
   "name": "invokr",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Call functions on the server side as if they were available on client side",
   "main": "index.js",
   "scripts": {
